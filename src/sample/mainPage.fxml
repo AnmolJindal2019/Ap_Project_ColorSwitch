@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <top>
+      <AnchorPane prefHeight="164.0" prefWidth="400.0" style="-fx-background-color: #272727;" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="WHITE" fontSmoothingType="LCD" layoutX="65.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" C    L    R SWITCH" textAlignment="CENTER" wrappingWidth="252.53680419921875">
+               <font>
+                  <Font size="60.0" />
+               </font>
+            </Text>
+            <Circle fill="#4b4f51" layoutX="41.0" layoutY="34.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
+            <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="18.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/gear.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="setting_button" layoutX="17.0" layoutY="12.0" mnemonicParsing="false" onAction="#settingButton" prefHeight="43.0" prefWidth="48.0" style="-fx-background-color: TRANSPARENT;" />
+            <Circle fill="#4b4f51" layoutX="359.0" layoutY="34.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
+            <ImageView fitHeight="54.0" fitWidth="59.0" layoutX="332.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/help.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="help_button" layoutX="335.0" layoutY="12.0" mnemonicParsing="false" onAction="#helpButton" prefHeight="43.0" prefWidth="48.0" style="-fx-background-color: TRANSPARENT;" />
+         </children></AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="446.0" prefWidth="400.0" style="-fx-background-color: #272727;" BorderPane.alignment="CENTER">
+         <children>
+            <Circle fill="#4b4f51" layoutX="200.0" layoutY="207.0" radius="77.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Polygon fill="WHITE" layoutX="208.0" layoutY="210.0" points="-42.02727127075195, 41.0324592590332, 41.3904914855957, 40.56672286987305, -3.3115272521972656, -42.89875411987305" rotate="90.0" stroke="WHITE" strokeType="INSIDE" />
+            <Button fx:id="startButton" layoutX="122.0" layoutY="129.0" mnemonicParsing="false" onAction="#playButton" prefHeight="154.0" prefWidth="154.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
+            <ImageView fx:id="trophy" fitHeight="67.0" fitWidth="67.0" layoutX="14.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/trophy.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="stattButton" layoutX="14.0" layoutY="401.0" mnemonicParsing="false" onAction="#statButton" prefHeight="67.0" prefWidth="67.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
+            <ImageView fx:id="share" fitHeight="67.0" fitWidth="67.0" layoutX="319.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/shareicon.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="share_button" layoutX="318.0" layoutY="401.0" mnemonicParsing="false" onAction="#shareButton" prefHeight="67.0" prefWidth="67.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
+         </children></AnchorPane>
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="158.0" prefWidth="400.0" style="-fx-background-color: #272727;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="190.0" layoutX="105.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/resume.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="resume_button" layoutX="105.0" layoutY="14.0" mnemonicParsing="false" onAction="#resumeButton1" prefHeight="48.0" prefWidth="190.0" style="-fx-background-color: TRANSPARENT;" />
+            <ImageView fitHeight="50.0" fitWidth="190.0" layoutX="105.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/exit.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="exit_button" layoutX="105.0" layoutY="79.0" mnemonicParsing="false" onAction="#exitButton" prefHeight="50.0" prefWidth="186.0" style="-fx-background-color: TRANSPARENT;" />
+         </children></AnchorPane>
+   </bottom>
+</BorderPane>
