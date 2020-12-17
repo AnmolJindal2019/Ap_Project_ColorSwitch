@@ -20,10 +20,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Controller extends loadFXML implements Variables{
 
-    public void pressButton()
-    {
-        System.out.println("functionality yet to be written");
-    }
 
     public void playButton() throws IOException
     {
@@ -121,7 +117,6 @@ public class Controller extends loadFXML implements Variables{
 
         ArrayList<Storage> list1 = new ArrayList<>();
         list1 = deserializeList();
-        System.out.println(list1.size());
 
         if(flag.get() < 0) {
             list1.add(data);
@@ -130,16 +125,13 @@ public class Controller extends loadFXML implements Variables{
             list1.set(flag.get() , data);
         }
 
-        System.out.println(list1.size());
         serializeList(list1);
-        System.out.println("saved");
     }
 
     public void resumeButton1() throws IOException, ClassNotFoundException
     {
         ArrayList<Storage> list = new ArrayList<>();
         list = deserializeList();
-        System.out.println(list.size());
         double NUM_BUTTON_LINES = list.size();
 
         final double BUTTON_PADDING = 10;
@@ -263,8 +255,26 @@ public class Controller extends loadFXML implements Variables{
             playMusic();
             playMusicimg.setVisible(true);
             playMusicicon.setVisible(false);
+            setVol.setVisible(true);
         }
         else{
+            musicPlayer.setVolume(0);
+            musicPlayer.stop();
+            playMusicimg.setVisible(false);
+            playMusicicon.setVisible(true);
+            setVol.setVisible(false);
+        }
+    }
+    public void playMusicButtonP()
+    {
+        mFlag = !mFlag;
+        if(mFlag) {
+            playMusic();
+            playMusicimg.setVisible(true);
+            playMusicicon.setVisible(false);
+        }
+        else{
+            musicPlayer.setVolume(0);
             musicPlayer.stop();
             playMusicimg.setVisible(false);
             playMusicicon.setVisible(true);
@@ -287,4 +297,8 @@ public class Controller extends loadFXML implements Variables{
 
     }
 
+    public void volumeButton() throws IOException {
+        loadVolumescreen();
+        primaryStage.show();
+    }
 }

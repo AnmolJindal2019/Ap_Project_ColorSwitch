@@ -47,9 +47,9 @@ public class Main extends Application implements Variables{
     static Stage cantconfirmStage = new Stage();
     static Stage gameoverStage = new Stage();
     static Stage followStage;
-    static EventHandler<MouseEvent> eventHandler ;
+    static EventHandler<MouseEvent> eventHandler;
     static EventHandler<MouseEvent> eventHandler1;
-    static EventHandler<MouseEvent> eventHandler2 ;
+    static EventHandler<MouseEvent> eventHandler2;
     static EventHandler<MouseEvent> eventHandler3;
     static ball b;
     static long star_counter = 0;
@@ -69,7 +69,6 @@ public class Main extends Application implements Variables{
     static MediaPlayer musicPlayer;
     static MediaPlayer ballPlayer;
     static AudioClip gameOverPlayer;
-
     static AudioClip ad;
 
     static Storage data;
@@ -78,6 +77,7 @@ public class Main extends Application implements Variables{
     static Node playMusicimg;
     static Node playSoundicon;
     static Node playMusicicon;
+    static Node setVol;
 
 //stars==========================================================
     static Star st1;
@@ -119,7 +119,7 @@ public class Main extends Application implements Variables{
         }
         catch(IOException ex)
         {
-            System.out.println("IOException is caught");
+//            System.out.println("IOException is caught");
         }
     }
 
@@ -347,26 +347,21 @@ public class Main extends Application implements Variables{
 
                     if(cs1.isCollide(cs1 , b) )
                     {
-//                        System.out.println("color changed");
-                        System.out.println(b.b.getFill());
                         ball.changeColor(pallete);
                         cs1.cs.setLayoutX(1000);
                     }
                     if( cs2.isCollide(cs2 , b))
                     {
-//                        System.out.println("color changed");
                         ball.changeColor(pallete);
                         cs2.cs.setLayoutX(1000);
                     }
                     if( cs3.isCollide(cs3 , b))
                     {
-//                        System.out.println("color changed");
                         ball.changeColor(pallete);
                         cs3.cs.setLayoutX(1000);
                     }
                     if(cs4.isCollide(cs4 , b))
                     {
-//                        System.out.println("color changed");
                         ball.changeColor(pallete);
                         cs4.cs.setLayoutX(1000);
                     }
@@ -419,8 +414,10 @@ public class Main extends Application implements Variables{
         collideTimeline.play();         //collision
         gamescreen.addEventFilter(MouseEvent.MOUSE_PRESSED, eventHandler);
         gamescreen.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler1);
-        gamescreen.addEventFilter(MouseEvent.MOUSE_PRESSED, eventHandler2);
-        gamescreen.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler3);
+        if(sFlag) {
+            gamescreen.addEventFilter(MouseEvent.MOUSE_PRESSED, eventHandler2);
+            gamescreen.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler3);
+        }
     }
 
     private void loadGameOverScreen() throws Exception {
@@ -446,7 +443,7 @@ public class Main extends Application implements Variables{
         stext.setText(Long.toString(score.getScore()));
 
         Text stext1 = new Text();
-        stext1.setTranslateX(180);
+        stext1.setTranslateX(170);
         stext1.setTranslateY(-110);
         stext1.setFontSmoothingType(FontSmoothingType.LCD);
         stext1.setFill(Color.WHITE);
@@ -454,7 +451,7 @@ public class Main extends Application implements Variables{
         stext1.setText(Long.toString(star_counter));
 
         Text stext2 = new Text();
-        stext2.setTranslateX(180);
+        stext2.setTranslateX(160);
         stext2.setTranslateY(30);
         stext2.setFontSmoothingType(FontSmoothingType.LCD);
         stext2.setFill(Color.WHITE);
@@ -569,9 +566,10 @@ public class Main extends Application implements Variables{
         moveBallDown(b);
 
         playSound(gamescreen);
-        if(sFlag) {
+
             eventHandler2 = e -> ballPlayer.play();
             eventHandler3 = e -> ballPlayer.stop();
+        if(sFlag) {
             gamescreen.addEventFilter(MouseEvent.MOUSE_PRESSED, eventHandler2);
             gamescreen.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler3);
         }
@@ -594,8 +592,6 @@ public class Main extends Application implements Variables{
                             || b.b.getCenterY()>=800)
                         {
                             pauseTimelines(primaryStage);
-
-                            System.out.println("gameover");
                             try {
                                 loadGameOverScreen();
                             } catch (Exception e) {
@@ -729,7 +725,7 @@ public class Main extends Application implements Variables{
         Media mainSound = new Media(new File(mainSoundPath).toURI().toString());
         musicPlayer = new MediaPlayer(mainSound);
         musicPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        musicPlayer.setVolume(0.05);
+        musicPlayer.setVolume(0.5);
         musicPlayer.setOnReady(new Runnable() {
             @Override
             public void run() {
@@ -744,10 +740,6 @@ public class Main extends Application implements Variables{
         Media mainSound = new Media(new File(mainSoundPath).toURI().toString());
         ballPlayer = new MediaPlayer(mainSound);
         ballPlayer.setCycleCount(1);
-//        eventHandler2 = e -> ballPlayer.play();
-//        eventHandler3 = e -> ballPlayer.stop();
-//        gamescreen.addEventFilter(MouseEvent.MOUSE_PRESSED, eventHandler2);
-//        gamescreen.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler3);
 
         ad = new AudioClip("file:star.mp3");
 
@@ -757,6 +749,7 @@ public class Main extends Application implements Variables{
 @Override
     public void start(Stage stage) throws Exception
     {
+
         long val = score.deserialize();
         score.setScore(val);
 

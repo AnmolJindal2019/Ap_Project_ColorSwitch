@@ -1,8 +1,11 @@
 package sample;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Slider;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -111,6 +114,41 @@ public class loadFXML extends Main{
         playMusicimg = root1.lookup("#img1");
         playSoundicon = root1.lookup("#stopIcon1");
         playMusicicon = root1.lookup("#stopIcon");
+        setVol = root1.lookup("#img2");
+        if(sFlag)
+        {
+            playSoundimg.setVisible(true);
+            playSoundicon.setVisible(false);
+        }
+        else
+        {
+            playSoundimg.setVisible(false);
+            playSoundicon.setVisible(true);
+        }
+        if(mFlag)
+        {
+            playMusicimg.setVisible(true);
+            playMusicicon.setVisible(false);
+            setVol.setVisible(true);
+        }
+        else
+        {
+            playMusicimg.setVisible(false);
+            playMusicicon.setVisible(true);
+            setVol.setVisible(true);
+        }
+
+
+        primaryStage.setScene(new Scene(root1 , 400, 800));
+    }
+
+    public void loadSettingscreen2() throws Exception {
+        Pane root1 = FXMLLoader.load(getClass().getResource("setting_pause.fxml"));
+        pauseStage.setTitle("setting Window");
+        playSoundimg = root1.lookup("#img");
+        playMusicimg = root1.lookup("#img1");
+        playSoundicon = root1.lookup("#stopIcon1");
+        playMusicicon = root1.lookup("#stopIcon");
         if(sFlag)
         {
             playSoundimg.setVisible(true);
@@ -131,14 +169,6 @@ public class loadFXML extends Main{
             playMusicimg.setVisible(false);
             playMusicicon.setVisible(true);
         }
-
-
-        primaryStage.setScene(new Scene(root1 , 400, 800));
-    }
-
-    public void loadSettingscreen2() throws Exception {
-        Pane root1 = FXMLLoader.load(getClass().getResource("setting_pause.fxml"));
-        pauseStage.setTitle("setting Window");
         pauseStage.setScene(new Scene(root1 , 400, 800));
     }
 
@@ -192,5 +222,30 @@ public class loadFXML extends Main{
         followStage.initStyle(StageStyle.TRANSPARENT);
         followStage.setTitle("Confirmation Window");
         followStage.setScene(new Scene(root1 , 320, 400));
+    }
+    public void loadVolumescreen() throws IOException {
+        Pane root = FXMLLoader.load(getClass().getResource("VolumeWindow.fxml"));
+        primaryStage.setTitle("Hello World");
+
+        Text txt = (Text) root.lookup("#txt");
+        txt.setFill(Color.web("#FFD700"));
+
+
+        Slider slider = (Slider) root.lookup("#sliderForVolume");
+
+        slider.setValue(musicPlayer.getVolume() *100);
+        txt.setText(Integer.toString((int) Math.round((musicPlayer.getVolume() *100))));
+
+        slider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, //
+                                Number oldValue, Number newValue) {
+
+                System.out.println((int)Math.round((Double) newValue));
+                musicPlayer.setVolume((double) newValue/100);
+                txt.setText(Integer.toString((int)Math.round((Double) newValue)));
+            }
+        });
+        primaryStage.setScene(new Scene(root, 400, 800));
     }
 }

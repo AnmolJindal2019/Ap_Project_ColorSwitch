@@ -23,9 +23,29 @@
                   <Image url="@images/Settings_pause101.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="img1" fitHeight="68.0" fitWidth="286.0" layoutX="114.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Stop_music.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="img" fitHeight="68.0" fitWidth="286.0" layoutX="114.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Stop_sound.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="stopIcon" fitHeight="77.0" fitWidth="72.0" layoutX="37.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Stop_music_icon.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="stopIcon1" fitHeight="77.0" fitWidth="72.0" layoutX="40.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Stop_sound_icon.png" />
+               </image>
+            </ImageView>
             <Button fx:id="back_setting" layoutX="36.0" layoutY="40.0" mnemonicParsing="false" onAction="#pauseButton" prefHeight="90.0" prefWidth="90.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
-            <Button fx:id="play_music_setting" layoutX="114.0" layoutY="304.0" mnemonicParsing="false" onAction="#yesButton" prefHeight="68.0" prefWidth="285.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
-            <Button fx:id="play_sounds_setting" layoutX="113.0" layoutY="389.0" mnemonicParsing="false" onAction="#yesButton" prefHeight="68.0" prefWidth="286.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
+            <Button fx:id="play_music_setting" layoutX="114.0" layoutY="304.0" mnemonicParsing="false" onAction="#playMusicButtonP" prefHeight="68.0" prefWidth="285.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
+            <Button fx:id="play_sounds_setting" layoutX="113.0" layoutY="389.0" mnemonicParsing="false" onAction="#playSoundButton" prefHeight="68.0" prefWidth="286.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
          </children></AnchorPane>
    </children>
 </GridPane>
