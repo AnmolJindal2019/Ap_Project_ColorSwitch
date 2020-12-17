@@ -43,9 +43,15 @@
                   <Image url="@images/Stop_sound_icon.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="img2" fitHeight="68.0" fitWidth="286.0" layoutX="75.0" layoutY="598.0" pickOnBounds="true" preserveRatio="true" style="visibility: false;">
+               <image>
+                  <Image url="@images/set_volume.png" />
+               </image>
+            </ImageView>
             <Button fx:id="play_music_setting" layoutX="108.0" layoutY="304.0" mnemonicParsing="false" onAction="#playMusicButton" prefHeight="68.0" prefWidth="285.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
             <Button fx:id="play_sounds_setting" layoutX="108.0" layoutY="392.0" mnemonicParsing="false" onAction="#playSoundButton" prefHeight="68.0" prefWidth="286.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
             <Button fx:id="home_setting" layoutX="34.0" layoutY="40.0" mnemonicParsing="false" onAction="#yesButton" prefHeight="90.0" prefWidth="90.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
+            <Button fx:id="play_sounds_setting1" layoutX="74.0" layoutY="598.0" mnemonicParsing="false" onAction="#volumeButton" prefHeight="68.0" prefWidth="286.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
          </children></AnchorPane>
    </children>
 </GridPane>

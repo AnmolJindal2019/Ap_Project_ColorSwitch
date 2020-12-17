@@ -242,7 +242,7 @@ public class Controller extends loadFXML implements Variables{
 
     public void videoButton() throws IOException {
 
-        getHostServices().showDocument("http://www.youtube.com");
+        getHostServices().showDocument("https://www.youtube.com/watch?v=ww68GN-CQMY");
         score.setScore(score.getScore() + 30);
         score.serialize(score.getScore());
         stext.setText(Long.toString(score.getScore()));

@@ -14,7 +14,7 @@
             <Image url="@images/Screenshot%20(6).png" />
          </image>
       </ImageView>
-      <Text fill="WHITE" layoutX="46.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unsaved Progress may will be lost." underline="true">
+      <Text fill="WHITE" layoutX="59.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unsaved Progress may be lost." underline="true">
          <font>
             <Font name="Comic Sans MS Italic" size="20.0" />
          </font>
