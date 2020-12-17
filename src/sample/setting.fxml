@@ -23,8 +23,28 @@
                   <Image url="@images/Settings101.png" />
                </image>
             </ImageView>
-            <Button fx:id="play_music_setting" layoutX="109.0" layoutY="304.0" mnemonicParsing="false" onAction="#yesButton" prefHeight="68.0" prefWidth="285.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
-            <Button fx:id="play_sounds_setting" layoutX="108.0" layoutY="392.0" mnemonicParsing="false" onAction="#yesButton" prefHeight="68.0" prefWidth="286.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
+            <ImageView fx:id="img" fitHeight="68.0" fitWidth="286.0" layoutX="109.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Stop_sound.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="img1" fitHeight="69.0" fitWidth="285.0" layoutX="110.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Stop_music.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="stopIcon" fitHeight="68.0" fitWidth="82.0" layoutX="36.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Stop_music_icon.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="stopIcon1" fitHeight="68.0" fitWidth="84.0" layoutX="31.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Stop_sound_icon.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="play_music_setting" layoutX="108.0" layoutY="304.0" mnemonicParsing="false" onAction="#playMusicButton" prefHeight="68.0" prefWidth="285.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
+            <Button fx:id="play_sounds_setting" layoutX="108.0" layoutY="392.0" mnemonicParsing="false" onAction="#playSoundButton" prefHeight="68.0" prefWidth="286.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
             <Button fx:id="home_setting" layoutX="34.0" layoutY="40.0" mnemonicParsing="false" onAction="#yesButton" prefHeight="90.0" prefWidth="90.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
          </children></AnchorPane>
    </children>

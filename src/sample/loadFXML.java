@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -60,6 +61,7 @@ public class loadFXML extends Main{
         setObstacles(200 , -300 , -800 , -1300 , -1800  , -2300 , -2800 , -3300);
 
         setBall(st.getBallCoordinate());
+        b.b.setFill(Color.web(pallete[st.getColor()]));
 
         setStarsLayout(st.getStar1(), st.getStar2(),st.getStar3(),st.getStar4(),st.getStar5(),st.getStar6(),st.getStar7(),st.getStar8());
         setCsLayout(st.getColorSwitcher1(),st.getColorSwitcher2(),st.getColorSwitcher3(),st.getColorSwitcher4());
@@ -104,6 +106,33 @@ public class loadFXML extends Main{
     public void loadSettingscreen() throws Exception {
         Pane root1 = FXMLLoader.load(getClass().getResource("setting.fxml"));
         primaryStage.setTitle("setting Window");
+
+        playSoundimg = root1.lookup("#img");
+        playMusicimg = root1.lookup("#img1");
+        playSoundicon = root1.lookup("#stopIcon1");
+        playMusicicon = root1.lookup("#stopIcon");
+        if(sFlag)
+        {
+            playSoundimg.setVisible(true);
+            playSoundicon.setVisible(false);
+        }
+        else
+        {
+            playSoundimg.setVisible(false);
+            playSoundicon.setVisible(true);
+        }
+        if(mFlag)
+        {
+            playMusicimg.setVisible(true);
+            playMusicicon.setVisible(false);
+        }
+        else
+        {
+            playMusicimg.setVisible(false);
+            playMusicicon.setVisible(true);
+        }
+
+
         primaryStage.setScene(new Scene(root1 , 400, 800));
     }
 

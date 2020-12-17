@@ -1046,6 +1046,21 @@ class ball extends Shape implements Variables
         }
     }
 
+    public int getColor()
+    {
+        String c = this.b.getFill().toString();
+        String hex = c.substring(2 ,8);
+
+        for(int i=0 ; i<4 ; i++)
+        {
+            if(hex.equals(pallete[i]))
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
 }
 
 class colorSwitcher{

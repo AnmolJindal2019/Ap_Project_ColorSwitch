@@ -46,7 +46,7 @@
                   <Image url="@images/trophy.png" />
                </image>
             </ImageView>
-            <Button fx:id="stattButton" layoutX="14.0" layoutY="401.0" mnemonicParsing="false" onAction="#statButton" prefHeight="67.0" prefWidth="67.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
+            <Button fx:id="statButton" layoutX="14.0" layoutY="401.0" mnemonicParsing="false" onAction="#statButton" prefHeight="67.0" prefWidth="67.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
             <ImageView fx:id="share" fitHeight="67.0" fitWidth="67.0" layoutX="319.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/shareicon.png" />

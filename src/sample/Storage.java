@@ -1,4 +1,7 @@
 package sample;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+
 import java.io.*;
 
 class Storage extends Main implements Serializable
@@ -7,9 +10,14 @@ class Storage extends Main implements Serializable
     private double arcCoordinate, bigStarCoordinate, octagonCoordinate, rhombusCoordinate, squareCoordinate, dotSquareCoordinate, colorLineCoordinate, crossLineCoordinateL, crossLineCoordinateR ,star1, star2, star3, star4, star5, star6, star7, star8, colorSwitcher1, colorSwitcher2, colorSwitcher3, colorSwitcher4, ballCoordinate;
     private double csText , Hand;
     private String time;
+    private int ballColor;
 
     public String getTime() {
         return time;
+    }
+
+    public int getColor() {
+        return ballColor;
     }
 
     public long getStarCounter() {
@@ -211,6 +219,8 @@ class Storage extends Main implements Serializable
     public void setHand(double y) {
         this.Hand = y;
     }
+
+    public void setBallColor(int c) {this.ballColor = c;}
 
     public void setStar(double st1 ,double st2 ,double st3 ,double st4 ,double st5 ,double st6 ,double st7 ,double st8)
     {

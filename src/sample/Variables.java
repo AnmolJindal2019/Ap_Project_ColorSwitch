@@ -4,5 +4,5 @@ import java.util.Random;
 
 public interface Variables {
     Random rand = new Random();
-    String[] pallete = {"FAE100" ,"900DFF" ,"FF0181" ,"32DBF0"};
+    String[] pallete = {"fae100" ,"900dff" ,"ff0181" ,"32dbf0"};
 }

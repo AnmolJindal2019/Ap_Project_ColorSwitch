@@ -25,7 +25,7 @@
             </ImageView>
             <Button fx:id="back_setting" layoutX="18.0" layoutY="18.0" mnemonicParsing="false" onAction="#yesButton" prefHeight="80.0" prefWidth="72.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
             <Button fx:id="replay" layoutX="135.0" layoutY="518.0" mnemonicParsing="false" onAction="#overContinueButton" prefHeight="126.0" prefWidth="122.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
-            <Button fx:id="play_video" layoutX="293.0" layoutY="549.0" mnemonicParsing="false" onAction="#yesButton" prefHeight="74.0" prefWidth="80.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
+            <Button fx:id="play_video" layoutX="293.0" layoutY="549.0" mnemonicParsing="false" onAction="#videoButton" prefHeight="74.0" prefWidth="80.0" style="-fx-background-radius: 100; -fx-background-color: TRANSPARENT;" textFill="#f7f7f700" />
          </children></AnchorPane>
    </children>
 </GridPane>

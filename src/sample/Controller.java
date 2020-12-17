@@ -3,6 +3,7 @@ package sample;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -108,6 +109,9 @@ public class Controller extends loadFXML implements Variables{
         //saving hand and text============================
         data.setCsText(csText.getLayoutY());
         data.setHand(hand.getLayoutY());
+
+        //save ball color=================================
+        data.setBallColor(b.getColor());
 
         //saving time====================================
         ZonedDateTime now = ZonedDateTime.now();
@@ -243,4 +247,44 @@ public class Controller extends loadFXML implements Variables{
     public void instagramButton(){
         getHostServices().showDocument("https://www.instagram.com");
     }
+
+    public void videoButton() throws IOException {
+
+        getHostServices().showDocument("http://www.youtube.com");
+        score.setScore(score.getScore() + 30);
+        score.serialize(score.getScore());
+        stext.setText(Long.toString(score.getScore()));
+    }
+
+    public void playMusicButton()
+    {
+        mFlag = !mFlag;
+        if(mFlag) {
+            playMusic();
+            playMusicimg.setVisible(true);
+            playMusicicon.setVisible(false);
+        }
+        else{
+            musicPlayer.stop();
+            playMusicimg.setVisible(false);
+            playMusicicon.setVisible(true);
+        }
+    }
+
+    public void playSoundButton()
+    {
+        sFlag = !sFlag;
+        if(sFlag)
+        {
+            playSoundimg.setVisible(true);
+            playSoundicon.setVisible(false);
+        }
+        else
+        {
+            playSoundimg.setVisible(false);
+            playSoundicon.setVisible(true);
+        }
+
+    }
+
 }

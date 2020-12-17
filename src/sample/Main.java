@@ -4,7 +4,6 @@ import javafx.animation.*;
 import javafx.application.Application;
 
 import java.io.*;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -17,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
@@ -49,6 +49,8 @@ public class Main extends Application implements Variables{
     static Stage followStage;
     static EventHandler<MouseEvent> eventHandler ;
     static EventHandler<MouseEvent> eventHandler1;
+    static EventHandler<MouseEvent> eventHandler2 ;
+    static EventHandler<MouseEvent> eventHandler3;
     static ball b;
     static long star_counter = 0;
     static Text text;
@@ -61,11 +63,21 @@ public class Main extends Application implements Variables{
     static Node hand;
     static AtomicInteger flag = new AtomicInteger();
     static AtomicBoolean flag1 = new AtomicBoolean();
+    static boolean sFlag = false;
+    static boolean mFlag = false;
 
     static MediaPlayer musicPlayer;
-    static MediaPlayer mediaPlayer;
+    static MediaPlayer ballPlayer;
+    static AudioClip gameOverPlayer;
+
+    static AudioClip ad;
 
     static Storage data;
+
+    static Node playSoundimg;
+    static Node playMusicimg;
+    static Node playSoundicon;
+    static Node playMusicicon;
 
 //stars==========================================================
     static Star st1;
@@ -249,6 +261,7 @@ public class Main extends Application implements Variables{
                 (evt)->{
                     ball.b.setCenterY((ball.b.getCenterY() - 1));
                     flag1.set(true);
+//                    starPlayer.pause();
 
                     if(st1.isCollide(st1 , b))
                     {
@@ -256,13 +269,20 @@ public class Main extends Application implements Variables{
                         text.setText(Long.toString(star_counter));
                         st1.gp.setLayoutX(1000);
                         score.setScore(score.getScore() + 1);
+                        if(sFlag) {
+                            ad.play();
+                        }
                     }
+
                     if(st2.isCollide(st2 , b))
                     {
                         star_counter++;
                         text.setText(Long.toString(star_counter));
                         st2.gp.setLayoutX(1000);
                         score.setScore(score.getScore() + 1);
+                        if(sFlag) {
+                            ad.play();
+                        }
                     }
                     if(st3.isCollide(st3 , b))
                     {
@@ -270,6 +290,9 @@ public class Main extends Application implements Variables{
                         text.setText(Long.toString(star_counter));
                         st3.gp.setLayoutX(1000);
                         score.setScore(score.getScore() + 1);
+                        if(sFlag) {
+                            ad.play();
+                        }
                     }
                     if(st4.isCollide(st4 , b))
                     {
@@ -277,6 +300,9 @@ public class Main extends Application implements Variables{
                         text.setText(Long.toString(star_counter));
                         st4.gp.setLayoutX(1000);
                         score.setScore(score.getScore() + 1);
+                        if(sFlag) {
+                            ad.play();
+                        }
                     }
                     if(st5.isCollide(st5 , b))
                     {
@@ -284,6 +310,9 @@ public class Main extends Application implements Variables{
                         text.setText(Long.toString(star_counter));
                         st5.gp.setLayoutX(1000);
                         score.setScore(score.getScore() + 1);
+                        if(sFlag) {
+                            ad.play();
+                        }
                     }
                     if(st6.isCollide(st6 , b))
                     {
@@ -291,6 +320,9 @@ public class Main extends Application implements Variables{
                         text.setText(Long.toString(star_counter));
                         st6.gp.setLayoutX(1000);
                         score.setScore(score.getScore() + 1);
+                        if(sFlag) {
+                            ad.play();
+                        }
                     }
                     if(st7.isCollide(st7 , b))
                     {
@@ -298,6 +330,9 @@ public class Main extends Application implements Variables{
                         text.setText(Long.toString(star_counter));
                         st7.gp.setLayoutX(1000);
                         score.setScore(score.getScore() + 1);
+                        if(sFlag) {
+                            ad.play();
+                        }
                     }
                     if(st8.isCollide(st8 , b))
                     {
@@ -305,33 +340,37 @@ public class Main extends Application implements Variables{
                         text.setText(Long.toString(star_counter));
                         st8.gp.setLayoutX(1000);
                         score.setScore(score.getScore() + 1);
+                        if(sFlag) {
+                            ad.play();
+                        }
                     }
 
                     if(cs1.isCollide(cs1 , b) )
                     {
-                        System.out.println("color changed");
+//                        System.out.println("color changed");
+                        System.out.println(b.b.getFill());
                         ball.changeColor(pallete);
                         cs1.cs.setLayoutX(1000);
                     }
                     if( cs2.isCollide(cs2 , b))
                     {
-                        System.out.println("color changed");
+//                        System.out.println("color changed");
                         ball.changeColor(pallete);
                         cs2.cs.setLayoutX(1000);
                     }
                     if( cs3.isCollide(cs3 , b))
                     {
-                        System.out.println("color changed");
+//                        System.out.println("color changed");
                         ball.changeColor(pallete);
                         cs3.cs.setLayoutX(1000);
                     }
                     if(cs4.isCollide(cs4 , b))
                     {
-                        System.out.println("color changed");
+//                        System.out.println("color changed");
                         ball.changeColor(pallete);
                         cs4.cs.setLayoutX(1000);
                     }
-                }));
+                }, new KeyValue[]{}));
 
         ballUpTimeline.setCycleCount(100);
     }
@@ -361,6 +400,10 @@ public class Main extends Application implements Variables{
         ballUpTimeline.pause();
         gamescreen.removeEventFilter(MouseEvent.MOUSE_PRESSED, eventHandler);
         gamescreen.removeEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler1);
+        if(sFlag) {
+            gamescreen.removeEventFilter(MouseEvent.MOUSE_PRESSED, eventHandler2);
+            gamescreen.removeEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler3);
+        }
         flag1.set(false);
     }
 
@@ -376,9 +419,14 @@ public class Main extends Application implements Variables{
         collideTimeline.play();         //collision
         gamescreen.addEventFilter(MouseEvent.MOUSE_PRESSED, eventHandler);
         gamescreen.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler1);
+        gamescreen.addEventFilter(MouseEvent.MOUSE_PRESSED, eventHandler2);
+        gamescreen.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler3);
     }
 
     private void loadGameOverScreen() throws Exception {
+        if(sFlag) {
+            gameOverPlayer.play();
+        }
         score.serialize(score.getScore());
         Pane root1 = FXMLLoader.load(getClass().getResource("GameOver.fxml"));
         gameoverStage.setTitle("Game Over");
@@ -501,6 +549,7 @@ public class Main extends Application implements Variables{
 
     public void gameCode(Stage gamescreen) throws IOException
     {
+
         text = new Text();
         text.setLayoutX(10);
         text.setLayoutY(63);
@@ -519,10 +568,21 @@ public class Main extends Application implements Variables{
         moveBallUp(b,text);
         moveBallDown(b);
 
-       eventHandler = e -> ballUpTimeline.play();
-       eventHandler1 = e -> ballDownTimeline.play();
-       gamescreen.addEventFilter(MouseEvent.MOUSE_PRESSED, eventHandler);
-       gamescreen.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler1);
+        playSound(gamescreen);
+        if(sFlag) {
+            eventHandler2 = e -> ballPlayer.play();
+            eventHandler3 = e -> ballPlayer.stop();
+            gamescreen.addEventFilter(MouseEvent.MOUSE_PRESSED, eventHandler2);
+            gamescreen.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler3);
+        }
+
+        eventHandler = e -> ballUpTimeline.play();
+        eventHandler1 = e -> ballDownTimeline.play();
+
+
+        gamescreen.addEventFilter(MouseEvent.MOUSE_PRESSED, eventHandler);
+        gamescreen.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler1);
+
     }
 
     public void collide()
@@ -663,26 +723,40 @@ public class Main extends Application implements Variables{
         obsMoveTimeline.play();
     }
 
-    private void playMusic()
+    public void playMusic()
     {
         String mainSoundPath = "D:\\Ap Project\\src\\sample\\sounds\\mainsong.mp3";
         Media mainSound = new Media(new File(mainSoundPath).toURI().toString());
-        mediaPlayer = new MediaPlayer(mainSound);
-//        mediaPlayer.setAutoPlay(true);
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        mediaPlayer.setVolume(0.1);
-        mediaPlayer.setOnReady(new Runnable() {
+        musicPlayer = new MediaPlayer(mainSound);
+        musicPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        musicPlayer.setVolume(0.05);
+        musicPlayer.setOnReady(new Runnable() {
             @Override
             public void run() {
-                mediaPlayer.play();
+                musicPlayer.play();
             }
         });
+    }
+
+    public void playSound(Stage gamescreen)
+    {
+        String mainSoundPath = "D:\\Ap Project\\src\\sample\\sounds\\ballup.mp3";
+        Media mainSound = new Media(new File(mainSoundPath).toURI().toString());
+        ballPlayer = new MediaPlayer(mainSound);
+        ballPlayer.setCycleCount(1);
+//        eventHandler2 = e -> ballPlayer.play();
+//        eventHandler3 = e -> ballPlayer.stop();
+//        gamescreen.addEventFilter(MouseEvent.MOUSE_PRESSED, eventHandler2);
+//        gamescreen.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler3);
+
+        ad = new AudioClip("file:star.mp3");
+
+        gameOverPlayer = new AudioClip("file:gameover.wav");
     }
 
 @Override
     public void start(Stage stage) throws Exception
     {
-        playMusic();
         long val = score.deserialize();
         score.setScore(val);
 
@@ -736,6 +810,16 @@ public class Main extends Application implements Variables{
         setRotate(c3 , 720);
         setRotate(c4 , -720);
         setRotate(c5 , 720);
+
+        Node tr = root.lookup("#trophy");
+        ImageView tr1 = (ImageView) tr;
+
+        Node sh = root.lookup("#share");
+        ImageView sh1 = (ImageView) sh;
+
+
+        setRotate(tr1 , 720);
+        setRotate(sh1 , 720);
 
         root.getChildren().addAll(c1,c2,c3,c4,c5);
 
