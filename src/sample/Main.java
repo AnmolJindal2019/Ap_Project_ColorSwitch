@@ -668,7 +668,9 @@ public class Main extends Application implements Variables{
         String mainSoundPath = "D:\\Ap Project\\src\\sample\\sounds\\mainsong.mp3";
         Media mainSound = new Media(new File(mainSoundPath).toURI().toString());
         mediaPlayer = new MediaPlayer(mainSound);
-        mediaPlayer.setAutoPlay(true);
+//        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.setVolume(0.1);
         mediaPlayer.setOnReady(new Runnable() {
             @Override
             public void run() {
