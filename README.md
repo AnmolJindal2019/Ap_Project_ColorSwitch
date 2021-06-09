@@ -1,6 +1,9 @@
 # Ap_Project_ColorSwitch
 Color Switch Game using Javafx
 
+![CS](https://user-images.githubusercontent.com/75037497/121313781-5c54d080-c924-11eb-91ed-9e0cf2e38cbd.gif)
+
+ ---
 About the game 
 In this project, we have implemented an infinite game version of Color Switch, using Javafx and Scene Builder. The game has objects of four colours (Violet, Pink, Yellow and Blue), these include four balls of each color, a color swither to switch the color of the ball and 8 obstacles.
 
